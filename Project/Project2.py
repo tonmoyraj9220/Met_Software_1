@@ -5,50 +5,50 @@ print("\nPlayer Name:", name)
 print("Player Age:", age)
 
 if age < 12:
-    print("You are a minor.")
+    print(f"Sorry {name} you are a minor, so you cannot play this game.")
     
 else:
-    print("\nWelcome to the adventure game,", name + "!")
+    days_left = 5
+    inventory = []
 
-    print("\n--- Main Menu ---")
-    print("1) explore")
-    print("2) inventory")
-    print("3) rest")
-    print("4) castle")
-    print("5) shop")
-    print("lopeta = quit")
-    print("-----------------")
+    print(f"\nWelcome to Nature Rescue, {name}!")
+    print("The fish in the bay are dying, and nobody knows why.\nCan you find the cause and save the bay?")
+    
+    command = ""
+    while command != "lopeta":
+        print("\n----Main Menu----")
+        print("\n[1] Start the game")
+        print("[2] Check the villege notice board")
+        print("[3] Check your backpack")
+        print("[4] Rest for the day")
+        print("[lopeta] Quit the game")
 
-    while True:
-        command = input("Enter a command: ")
+        command = input("\nChoose an Option - ").strip().lower()
 
-        if command == "lopeta":
-            print("The game is shutting down. Goodbye!")
-            break
+        if command == "1":
+            print("\nYou stand in small villege beside the sea, seagulls soaring over your head, \nand a muddy brown river flowing towards the bay.")
 
-        elif command == "explore":
-            print("You explore the forest.")
+        elif command == "2":
+            print("\n NOTICE:- Fish found dead on the shore!/nNOTICE:- Strange noises can be heard from the forest upstream!")
 
-        elif command == "inventory":
-            print("Inventory: wooden shield, healing potion, 5 silver coins.")
+        elif command == "3":
+            if len(inventory) == 0:
+                print("\nYour backpack is empty.")
+            else:
+                print("\nYour backpack hold:")
+                for item in inventory:
+                    print("-", item)
 
-        elif command == "rest":
-            print("Resting under a tree restored your energy.")
+        elif command == "4":
+            days_left -= 1
+            print("\nYou rest. One day passes")
+            if days_left == 0:
+                print("\nThe festival has arrived and fish in the bay are still dying.")
+                print("GAME OVER")
+                command = "lopeta"
 
-        elif command == "castle":
-            print("You approach an old castle, the gates creak open slowly.")
-
-        elif command == "shop":
-            print("You enter a small shop and the merchant greets you warmly.")
+        elif command == "lopeta":
+            print("\nGoodbye", name,"!")
 
         else:
-            print("Unknown command.")
-
-        print("\n--- Main Menu ---")
-        print("1) explore")
-        print("2) inventory")
-        print("3) rest")
-        print("4) castle")
-        print("5) shop")
-        print("lopeta = quit")
-        print("-----------------")
+            print("\nUnknown command, please give an appropriate command")
