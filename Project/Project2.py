@@ -15,13 +15,13 @@ else:
     print("The fish in the bay are dying, and nobody knows why.\nCan you find the cause and save the bay?")
     
     command = ""
-    while command != "lopeta":
+    while command != "exit":
         print("\n----Main Menu----")
         print("\n[1] Start the game")
         print("[2] Check the villege notice board")
         print("[3] Check your backpack")
         print("[4] Rest for the day")
-        print("[lopeta] Quit the game")
+        print("[exit] Quit the game")
 
         command = input("\nChoose an Option - ").strip().lower()
 
@@ -45,9 +45,9 @@ else:
             if days_left == 0:
                 print("\nThe festival has arrived and fish in the bay are still dying.")
                 print("GAME OVER")
-                command = "lopeta"
+                command = "exit"
 
-        elif command == "lopeta":
+        elif command == "exit":
             print("\nGoodbye", name,"!")
 
         else:
